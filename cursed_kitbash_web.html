@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bill-Style Kitbash</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #eee; padding: 20px; }
+    button { font-size: 18px; padding: 12px; background: #444; color: white; border: none; border-radius: 8px; width: 100%; }
+    .card { background: #222; margin-top: 20px; padding: 20px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Bill-Style Kitbash Generator</h2>
+  <button onclick="generate()">Generate Prompt</button>
+  <div class="card" id="output"></div>
+  <script>
+    const themes = [
+      "a one-eyed mutant noble", "a rusted ex-soldier covered in moss", "a cultist who thinks they're a tank",
+      "a scavenger king wearing microwave armor", "a tech-priest possessed by a meme daemon",
+      "a knight made of bones and bolts", "a bounty hunter with a pet grenade", "a failed clone of a demigod",
+      "a vampire in power armor", "a robot haunted by its own software"
+    ];
+    const objectives = [
+      "Give them a cloak made from old curtains", "Make sure they carry at least one skull that's not theirs",
+      "Their main weapon should look like it doesn't work—but does", "Build them with a limb that clearly isn't human or theirs",
+      "Attach an ancient relic made of toaster parts", "Hide a holy book somewhere on the model",
+      "Give them a crown that looks suspiciously like a gear", "Use at least two broken weapons fused together",
+      "Let them ride something inappropriate (like a fridge or corpse)", "Give them a banner that's too big for them"
+    ];
+    const materials = [
+      "bits from an old toy", "a broken action figure arm", "random sprue made to look like bone",
+      "half a base", "toothpicks and superglue", "something from your terrain bin",
+      "a 3D print fail", "a model you hate", "the ugliest bit you own", "plastic shavings and glue blobs"
+    ];
+    const paintDares = [
+      "Drybrush everything and wash with neon", "Use only three paints", "Add glow effects to random places",
+      "Weather the model like it's been through a volcano", "Highlight using metallics only",
+      "Paint the eyes last and make them the brightest part", "Make the base tell more story than the model",
+      "Use pastel colors where they shouldn't go", "Add freehand somewhere... even if it's terrible",
+      "Try to make it look like a religious idol"
+    ];
+
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generate() {
+      const prompt = `BUILD PROMPT:\nYou must create ${getRandom(themes)}.\n${getRandom(objectives)}\nUse ${getRandom(materials)} to make it weird.\n${getRandom(paintDares)}.`;
+      document.getElementById('output').innerText = prompt;
+    }
+  </script>
+</body>
+</html>
